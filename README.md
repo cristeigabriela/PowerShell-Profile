@@ -28,3 +28,48 @@ C:\Windows\SysWOW64\KernelBase.dll:
         225   D7 00141CC0 CreateFileMappingNumaW
         226   D8 00141C90 CreateFileMappingW
 ```
+
+### New-GitBranchFromRemote
+```
+> New-GitBranchFromRemote -LocalBranch git-example -RemoteName daniel -BaseBranch win-43 -Closest
+Fetching from 'daniel'...
+Fetch complete.
+No exact match. Use closest branch 'win-43-subprocessing'? (Y/n): y
+
+About to run:
+  git checkout -b git-example daniel/win-43-subprocessing
+
+Proceed? (Y/n): n
+Cancelled.
+```
+
+### Plex-FixLibraryName
+```
+> Plex-FixLibraryName -Folder .\Full.Moon.Wo.Sagashite\ -FileFormat mkv
+
+Found 52 file(s) in .\Full.Moon.Wo.Sagashite\:
+
+The following renames will be applied:
+  'Full Moon wo Sagashite - 01v2.mkv' -> 'Full.Moon.wo.Sagashite.01v2.mkv'
+  'Full Moon wo Sagashite - 02v2.mkv' -> 'Full.Moon.wo.Sagashite.02v2.mkv'
+  (...)
+
+Proceed with renaming? (y/n): n
+```
+
+### New-KubectlBusyBoxPod
+```
+> New-KubectlBusyBoxPod -Name fun -Restart "Always" -Attach
+Pod 'fun' exists, status: 'Running'
+Delete pod 'fun' and recreate it? (y/n): y
+Deleting existing pod 'fun'...
+Warning: Immediate deletion does not wait for confirmation that the running resource has been terminated. The resource may continue to run on the cluster indefinitely.
+Pod 'fun' successfully deleted.
+Creating BusyBox pod 'fun' with restart policy 'Always'...
+Waiting for pod 'fun' to be ready...
+Pod 'fun' is ready!
+Attaching to /bin/sh inside 'fun'...
+/ # mkdir app
+/ # echo "hi github" > test.txt
+/ # exit
+````
